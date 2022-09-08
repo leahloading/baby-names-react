@@ -1,0 +1,15 @@
+.female {
+    color: pink
+}
+
+.male {
+    color: blue
+}
+
+/* :is(.female, .male) {
+    background-color: aquamarine;
+} */
+
+.babyNamesSection {
+    display: flex
+}
