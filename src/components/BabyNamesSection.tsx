@@ -3,9 +3,26 @@ import IBaby from "../IBaby";
 import sortBabyNamesAlphabet from "../utils/sortBabyNamesAlphabet";
 import BabyName from "./BabyName";
 
-function BabyNamesSection(): JSX.Element {
+interface BabyNamesSectionProps {
+    userInput: string
+}
 
-    const babyNames = sortBabyNamesAlphabet(babyData).map((baby: IBaby) => {
+function filterBabyNamesBySearch(babyNames: IBaby[], searchterm:string):IBaby[] {
+    let result:IBaby[] = [];
+
+    for (const baby of babyNames) {
+        if (baby.name.toLowerCase().includes(searchterm.toLowerCase())) {
+          result = [...result, baby]
+        }
+    }
+    return result
+}
+
+function BabyNamesSection({userInput}:BabyNamesSectionProps): JSX.Element {
+
+    const sortBabyNames = sortBabyNamesAlphabet(babyData)
+
+    const babyNames = filterBabyNamesBySearch(sortBabyNames,userInput).map((baby: IBaby) => {
         return (
             <p 
             className={baby.sex === "f" ? "female" : "male"} 

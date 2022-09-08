@@ -9,7 +9,7 @@ function SearchBar({userInput, onType}:SearchBarProps):JSX.Element {
 
     function handleUserInput(e:React.ChangeEvent<HTMLInputElement>){
         onType(e.target.value)
-        console.log(userInput);
+        // console.log(userInput);
     }
     return <>
     <input type="text" 

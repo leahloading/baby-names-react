@@ -14,7 +14,7 @@ function App(): JSX.Element {
   userInput={userInput}
   onType={setUserInput}/>
 
-  <BabyNamesSection/>
+  <BabyNamesSection userInput={userInput}/>
   </>
 }
 
